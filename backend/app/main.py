@@ -15,7 +15,6 @@ app = FastAPI()
 origins = [
     "http://localhost:5173", 
     "http://localhost:3000",
-    "https://tubular-yeot-b5348c.netlify.app",
     "https://notes-app-pi-six.vercel.app/"
 ]
 
