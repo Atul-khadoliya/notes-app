@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const apiClient = axios.create({
-  baseURL: 'https://notes-app-pi-six.vercel.app/',
+  baseURL: 'https://notes-api-atulkhadoliya.onrender.com',
   headers: {
     'Content-Type': 'application/json',
   },
