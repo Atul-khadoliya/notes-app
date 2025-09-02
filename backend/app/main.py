@@ -7,28 +7,29 @@ from typing import Annotated
 from app import crud, models, schemas, security
 from app.database import SessionLocal, engine
 
-# Create all database tables
+
 models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
 origins = [
-    "http://localhost:5173", # The origin for our React app
-    "http://localhost:3000", # A common alternative for React dev servers
+    "http://localhost:5173", 
+    "http://localhost:3000",
+    "https://tubular-yeot-b5348c.netlify.app"
 ]
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
     allow_credentials=True,
-    allow_methods=["*"], # Allow all methods
-    allow_headers=["*"], # Allow all headers
+    allow_methods=["*"], 
+    allow_headers=["*"], 
 )
 
 @app.get("/")
 def read_root():
     return {"message": "Welcome to the Notes App API!"}
-# Dependency to get a DB session
+
 def get_db():
     db = SessionLocal()
     try:
@@ -36,7 +37,7 @@ def get_db():
     finally:
         db.close()
 
-# Dependency to get the current user from a token
+
 def get_current_user(db: Session = Depends(get_db), token: str = Depends(security.oauth2_scheme)):
     credentials_exception = HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
@@ -56,7 +57,7 @@ def get_current_user(db: Session = Depends(get_db), token: str = Depends(securit
         raise credentials_exception
     return user
 
-# --- AUTHENTICATION ENDPOINT ---
+
 
 @app.post("/token")
 def login_for_access_token(
@@ -72,7 +73,7 @@ def login_for_access_token(
     access_token = security.create_access_token(data={"sub": user.username})
     return {"access_token": access_token, "token_type": "bearer"}
 
-# --- USER ENDPOINT ---
+
 
 @app.post("/users/", response_model=schemas.User)
 def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
@@ -81,7 +82,7 @@ def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
         raise HTTPException(status_code=400, detail="Username already registered")
     return crud.create_user(db=db, user=user)
 
-# --- SECURED NOTE ENDPOINTS ---
+
 
 @app.post("/notes/", response_model=schemas.Note)
 def create_note(
