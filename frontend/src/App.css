@@ -1,0 +1,399 @@
+/* Reset + fonts */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  background: #f5f7fa;
+  color: #333;
+}
+
+.app {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #4a90e2;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(74, 144, 226, 0.3);
+}
+
+.app-title {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+/* Buttons */
+.btn {
+  background: white;
+  color: #4a90e2;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn:hover {
+  background: #f0f4ff;
+}
+
+.logout-btn {
+  background: #ff6b6b;
+  color: white;
+}
+
+.logout-btn:hover {
+  background: #ff4c4c;
+}
+
+/* Main layout */
+.app-main {
+  margin-top: 20px;
+  display: grid;
+  gap: 20px;
+}
+
+/* Card style sections */
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.card h2 {
+  margin-top: 0;
+  color: #4a90e2;
+}
+
+/* Notes list */
+.notes-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.empty-text {
+  text-align: center;
+  font-style: italic;
+  color: #777;
+}
+
+/* Individual NoteItem style (you can also refine inside NoteItem.css if needed) */
+.notes-list li {
+  background: #f9fafb;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.notes-list li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Center the note form section */
+.note-form-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Note form container */
+.note-form-container {
+  width: 100%;
+  max-width: 500px;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.note-form-title {
+  margin: 0 0 10px;
+  color: #4a90e2;
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+/* Form groups */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.form-input,
+.form-textarea {
+  padding: 10px;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.15);
+}
+
+.form-textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Button */
+.add-btn {
+  background: #4a90e2;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  align-self: flex-end;
+  transition: background 0.2s ease-in-out;
+}
+
+.add-btn:hover {
+  background: #357ab7;
+}
+
+/* Error message */
+.error-text {
+  color: #ff4c4c;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* NoteItem styles */
+.note-item {
+  background: #f9fafb;
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.note-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Editing mode */
+.note-item.editing {
+  flex-direction: column;
+}
+
+.edit-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Note text styles */
+.note-title {
+  margin: 0 0 6px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.note-text {
+  margin: 0 0 10px;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.note-share {
+  font-size: 0.8rem;
+  color: #777;
+}
+
+.note-share a {
+  color: #4a90e2;
+  text-decoration: none;
+}
+
+.note-share a:hover {
+  text-decoration: underline;
+}
+
+/* Actions */
+.note-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* Buttons */
+.edit-btn {
+  background: #f0f4ff;
+  color: #4a90e2;
+}
+
+.edit-btn:hover {
+  background: #dbe7ff;
+}
+
+.delete-btn {
+  background: #ff6b6b;
+  color: white;
+}
+
+.delete-btn:hover {
+  background: #ff4c4c;
+}
+
+.save-btn {
+  background: #4a90e2;
+  color: white;
+}
+
+.save-btn:hover {
+  background: #357ab7;
+}
+
+.cancel-btn {
+  background: #f3f3f3;
+  color: #555;
+}
+
+.cancel-btn:hover {
+  background: #e2e2e2;
+}
+/* AUTH CONTAINER */
+.auth-container {
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 24px;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.auth-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* FORM */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  text-align: left;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  color: #555;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  outline: none;
+  font-size: 1rem;
+  transition: border 0.2s;
+}
+
+.form-input:focus {
+  border-color: #4a90e2;
+}
+
+/* BUTTONS */
+.btn {
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.primary-btn {
+  background: #4a90e2;
+  color: white;
+  width: 100%;
+}
+
+.primary-btn:hover {
+  background: #357ab7;
+}
+
+.switch-btn {
+  margin-top: 16px;
+  background: #f3f3f3;
+  color: #333;
+  width: 100%;
+}
+
+.switch-btn:hover {
+  background: #e2e2e2;
+}
+
+/* ERROR MESSAGE */
+.error-text {
+  color: #ff4c4c;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+/* LOGOUT BUTTON */
+.logout-btn {
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.logout-btn:hover {
+  background: #ff4c4c;
+}
